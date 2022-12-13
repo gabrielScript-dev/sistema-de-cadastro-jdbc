@@ -36,11 +36,11 @@ public class ContatoDao {
 		}
 	}
 	
-	public void remover(Long id) {
+	public void remover(Contato contato) {
 		String sql = "delete from contatos where id=?";
 		try {
 			PreparedStatement stmt = this.conn.prepareStatement(sql);
-			stmt.setLong(1, id);
+			stmt.setLong(1, contato.getId());
 			stmt.execute();
 			stmt.close();
 		} catch(SQLException e) {
